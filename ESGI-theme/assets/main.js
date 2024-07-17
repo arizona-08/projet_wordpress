@@ -39,3 +39,29 @@ function fetchPage(page) {
 		});
 	});
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const burgerMenu = document.getElementById('burger-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+
+    burgerMenu.addEventListener('click', function () {
+        mobileMenu.classList.add('open');
+    });
+
+    closeMenu.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+    });
+
+    // Fermer le menu en cliquant en dehors
+    document.addEventListener('click', function (event) {
+        if (!mobileMenu.contains(event.target) && !burgerMenu.contains(event.target)) {
+            mobileMenu.classList.remove('open');
+        }
+    });
+});
+
+
+
+
+

@@ -6,7 +6,7 @@ add_action('wp_enqueue_scripts', 'esgi_enqueue_assets');
 function esgi_enqueue_assets()
 {
     wp_enqueue_style('main', get_stylesheet_uri());
-    wp_enqueue_script('main', get_template_directory_uri() . '/assets/main.js', );
+    wp_enqueue_script('main', get_template_directory_uri() . '/assets/main.js', array(), null, true);
 
     // Injection de variables dans js
     $big = 999999999; // need an unlikely integer
@@ -20,17 +20,16 @@ function esgi_enqueue_assets()
     wp_localize_script('main', 'esgi', $vars);
 }
 
-
-
 // Ajout des supports au thème
 add_action('after_setup_theme', 'esgi_theme_setup');
 function esgi_theme_setup()
 {
     add_theme_support('custom-logo');
     add_theme_support('post-thumbnails');
+    add_theme_support('menus');
 }
 
-
+// Enregistrement des menus
 add_action('after_setup_theme', 'esgi_register_nav_menu', 0);
 function esgi_register_nav_menu()
 {
@@ -39,7 +38,6 @@ function esgi_register_nav_menu()
         'footer_menu' => __('Footer Menu', 'ESGI'),
     ]);
 }
-
 
 // Fonction "helper" de génération d'icones svg
 function esgi_getIcon($name)
@@ -64,7 +62,6 @@ function esgi_getIcon($name)
     return $$name;  // nom de variable dynamique
 
 }
-
 
 // Customizer du thème
 add_action('customize_register', 'esgi_customize_register');
@@ -143,7 +140,6 @@ function esgi_bool_sanitize($value)
     return is_bool($value) ? $value : false;
 }
 
-
 // Application des styles du customizer
 add_action('wp_head', 'esgi_custom_style');
 function esgi_custom_style()
@@ -155,7 +151,6 @@ function esgi_custom_style()
             </style>';
 }
 
-
 add_filter('body_class', 'esgi_body_class', 999, 1);
 function esgi_body_class($classes)
 {
@@ -164,7 +159,6 @@ function esgi_body_class($classes)
     }
     return $classes;
 }
-
 
 // Déclaration des routes ajax
 add_action('wp_ajax_load_posts', 'ajax_load_posts'); // action déclenchée par un call contenant une propriété action = 'load_posts'
@@ -182,8 +176,8 @@ function ajax_load_posts()
     echo ob_get_clean();
     wp_die();
 }
-//////////////////////////TP //////////////////////////////////////////////////////////////
 
+// Customizer pour les paramètres du footer
 function esgi_theme_customizer_register($wp_customize)
 {
     // paramètres du footer
@@ -210,7 +204,7 @@ function esgi_theme_customizer_register($wp_customize)
             'type' => 'checkbox',
         )
     );
-    // URL  réseaux sociaux
+    // URL des réseaux sociaux
     $social_networks = array('twitter', 'facebook', 'google', 'linkedin');
     foreach ($social_networks as $network) {
         $wp_customize->add_setting(
@@ -231,13 +225,14 @@ function esgi_theme_customizer_register($wp_customize)
     }
 }
 add_action('customize_register', 'esgi_theme_customizer_register');
+
 function esgi_theme_footer_content()
 {
-    //formulaire de recherche si param activé
+    // formulaire de recherche si param activé
     if (get_theme_mod('has_footer_search', false)) {
         get_search_form();
     }
-    // afficher  icônes  réseaux sociaux si URL renseignée
+    // afficher les icônes des réseaux sociaux si URL renseignée
     $social_networks = array('twitter', 'facebook', 'google', 'linkedin');
     echo '<div">';
     foreach ($social_networks as $network) {
@@ -249,8 +244,8 @@ function esgi_theme_footer_content()
     echo '</div>';
 }
 
-
 add_action('wp_footer', 'esgi_theme_footer_content', 10);
+
 function esgi_theme_register_menus()
 {
     register_nav_menus(
@@ -260,6 +255,7 @@ function esgi_theme_register_menus()
     );
 }
 add_action('init', 'esgi_theme_register_menus');
+
 function esgi_theme_footer_menu()
 {
     if (has_nav_menu('footer-menu')) {
@@ -273,6 +269,7 @@ function esgi_theme_footer_menu()
     }
 }
 add_action('wp_footer', 'esgi_theme_footer_menu', 15);
+
 function esgi_theme_widgets_init()
 {
     register_sidebar(
@@ -288,6 +285,7 @@ function esgi_theme_widgets_init()
     );
 }
 add_action('widgets_init', 'esgi_theme_widgets_init');
+
 function esgi_theme_footer_widgets()
 {
     if (is_active_sidebar('footer-widget-area')) {
