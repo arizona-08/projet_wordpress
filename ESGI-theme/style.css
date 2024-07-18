@@ -4534,15 +4534,6 @@ svg:hover path {
   cursor: pointer;
   margin-right: 1.25rem;
 }
-#site-header .burger-menu .line {
-  width: 100%;
-  height: 0.125rem;
-  background-color: var(--black);
-  margin: 0.125rem 0;
-}
-#site-header .burger-menu .line:nth-child(2) {
-  width: 60%;
-}
 
 .mobile-menu {
   display: none;
