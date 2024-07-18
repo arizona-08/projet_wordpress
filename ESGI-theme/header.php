@@ -11,19 +11,18 @@
     <?php wp_body_open(); ?>
     <header id="site-header">
     <div class="logo">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/png/logo.png" alt="ESGI">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/svg/logo.svg" alt="ESGI">
         <span class="square"></span>
     </div>
     <div class="burger-menu" id="burger-menu">
-        <div class="line"></div>
-        <div class="line"></div>
+        <img src="<?php echo get_template_directory_uri(); ?>/images/svg/menu.svg" alt="ESGI">
     </div>
 </header>
 <nav class="mobile-menu" id="mobile-menu">
     <div class="mobile-menu-content">
         <img src="<?php echo get_template_directory_uri(); ?>/images/png/logowhite.png" alt="ESGI" class="logo-white">
         <p>Or try Search</p>
-        <span class="close-menu" id="close-menu">&times;</span>
+        <img src="<?php echo get_template_directory_uri(); ?>/images/svg/close.svg" class="close-menu" id="close-menu">
         <?php
         wp_nav_menu(
             array(
@@ -35,6 +34,7 @@
         ?>
     </div>
 </nav>
+
 
 
 

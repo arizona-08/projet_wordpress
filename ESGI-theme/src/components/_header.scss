@@ -22,18 +22,7 @@
         justify-content: center;
         cursor: pointer;
         margin-right: rem(20);
-
-        .line {
-            width: 100%;
-            height: rem(2);
-            background-color: var(--black);
-            margin: rem(2) 0;
-
-            &:nth-child(2) {
-                width: 60%; 
-            }
-        }
-    }
+    }	
 }
 
 .mobile-menu {
