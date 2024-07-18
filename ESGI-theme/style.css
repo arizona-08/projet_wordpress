@@ -4745,4 +4745,112 @@ svg:hover path {
   color: var(--main-color);
 }
 
+.about-us-content {
+  padding: 3.125rem;
+}
+.about-us-content h1 {
+  font-family: "Overpass", sans-serif;
+  font-size: 2.25rem;
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+.about-us-content .intro-section {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 3.125rem;
+}
+.about-us-content .intro-section .intro-image {
+  width: 50%;
+  height: auto;
+  margin-right: 1.25rem;
+}
+.about-us-content .intro-section .intro-text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.about-us-content .intro-section .intro-text h2 {
+  font-family: "Overpass", sans-serif;
+  font-size: 1.75rem;
+  margin-bottom: 0.625rem;
+  text-align: left;
+}
+.about-us-content .intro-section .intro-text p {
+  font-family: "Source Serif 4", serif;
+  font-size: 1.125rem;
+  color: #555;
+  text-align: left;
+}
+.about-us-content .sections {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 3.125rem;
+  margin-bottom: 3.125rem;
+}
+.about-us-content .sections .about-us-image {
+  width: 30%;
+  height: auto;
+  margin-right: 1.25rem;
+}
+.about-us-content .sections .sections-text {
+  width: 70%;
+}
+.about-us-content .sections .sections-text .section {
+  margin-bottom: 1.875rem;
+  text-align: left;
+}
+.about-us-content .sections .sections-text .section h3 {
+  font-family: "Overpass", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.625rem;
+}
+.about-us-content .sections .sections-text .section p {
+  font-family: "Source Serif 4", serif;
+  font-size: 1.125rem;
+  color: #555;
+}
+.about-us-content .team-section {
+  margin-top: 3.125rem;
+}
+.about-us-content .team-section h2 {
+  font-family: "Overpass", sans-serif;
+  font-size: 1.75rem;
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+.about-us-content .team-section .team-members {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.about-us-content .team-section .team-members .team-member {
+  width: 22%;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+.about-us-content .team-section .team-members .team-member img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.625rem;
+}
+.about-us-content .team-section .team-members .team-member h3 {
+  font-family: "Overpass", sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: 0.3125rem;
+}
+.about-us-content .team-section .team-members .team-member p {
+  font-family: "Source Serif 4", serif;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.3125rem;
+}
+.about-us-content .team-section .team-members .team-member p a {
+  color: #555;
+  text-decoration: none;
+}
+.about-us-content .team-section .team-members .team-member p a:hover {
+  text-decoration: underline;
+}
+
 /*# sourceMappingURL=style.css.map */
