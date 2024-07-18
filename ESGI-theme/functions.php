@@ -67,72 +67,190 @@ function esgi_getIcon($name)
 add_action('customize_register', 'esgi_customize_register');
 function esgi_customize_register($wp_customize)
 {
-    // ajout d'une section
+    // Section pour les paramètres ESGI
     $wp_customize->add_section('esgi_section', [
         'title' => __('Paramètres ESGI'),
         'description' => __('Customisation du thème !'),
-        'panel' => '', // Not typically needed.
         'priority' => 0,
         'capability' => 'edit_theme_options',
-        'theme_supports' => '', // Rarely needed.
     ]);
 
-    // ajout d'un setting
+    // Ajout du paramètre pour la couleur principale
     $wp_customize->add_setting('main_color', [
-        'type' => 'theme_mod', // or 'option'
+        'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
-        'theme_supports' => '', // Rarely needed.
         'default' => '#3f51b5',
-        'transport' => 'refresh', // or postMessage
+        'transport' => 'refresh',
         'sanitize_callback' => 'sanitize_hex_color',
-        'sanitize_js_callback' => '', // Basically to_json.
     ]);
 
-    // ajout d'un controle
+    // Contrôle pour la couleur principale
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'main_color', [
         'label' => __('Couleur principale', 'ESGI'),
         'section' => 'esgi_section',
     ]));
 
-    // ajout d'un setting
+    // Ajout du paramètre pour le mode sombre
     $wp_customize->add_setting('is_dark', [
-        'type' => 'theme_mod', // or 'option'
+        'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
-        'theme_supports' => '', // Rarely needed.
         'default' => '',
-        'transport' => 'refresh', // or postMessage
+        'transport' => 'refresh',
         'sanitize_callback' => 'esgi_bool_sanitize',
-        'sanitize_js_callback' => '', // Basically to_json.
     ]);
 
-    // Ajout d'un control
+    // Contrôle pour le mode sombre
     $wp_customize->add_control('is_dark', [
         'type' => 'checkbox',
-        'priority' => 1, // Within the section.
-        'section' => 'esgi_section', // Required, core or custom.
+        'priority' => 1,
+        'section' => 'esgi_section',
         'label' => __('Dark mode'),
         'description' => __('Black is beautiful :)'),
     ]);
 
-    // ajout d'un setting
+    // Ajout du paramètre pour la sidebar
     $wp_customize->add_setting('has_sidebar', [
-        'type' => 'theme_mod', // or 'option'
+        'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
-        'theme_supports' => '', // Rarely needed.
         'default' => '',
-        'transport' => 'refresh', // or postMessage
+        'transport' => 'refresh',
         'sanitize_callback' => 'esgi_bool_sanitize',
-        'sanitize_js_callback' => '', // Basically to_json.
     ]);
 
-    // Ajout d'un control
+    // Contrôle pour la sidebar
     $wp_customize->add_control('has_sidebar', [
         'type' => 'checkbox',
-        'priority' => 1, // Within the section.
-        'section' => 'esgi_section', // Required, core or custom.
+        'priority' => 1,
+        'section' => 'esgi_section',
         'label' => __('Afficher la sidebar'),
         'description' => __('(Uniquement sur les articles)'),
     ]);
+
+    // Section pour les membres de l'équipe
+    $wp_customize->add_section('team_members_section', [
+        'title' => __('Membres de l\'équipe', 'ESGI'),
+        'priority' => 30,
+    ]);
+
+    // Champs pour chaque membre de l'équipe (limité à 4)
+    for ($i = 1; $i <= 4; $i++) {
+        $wp_customize->add_setting("team_member_{$i}_role", [
+            'default' => '',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_control("team_member_{$i}_role", [
+            'label' => __("Rôle du membre $i", 'ESGI'),
+            'section' => 'team_members_section',
+            'type' => 'text',
+        ]);
+
+        $wp_customize->add_setting("team_member_{$i}_phone", [
+            'default' => '',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_control("team_member_{$i}_phone", [
+            'label' => __("Téléphone du membre $i", 'ESGI'),
+            'section' => 'team_members_section',
+            'type' => 'text',
+        ]);
+
+        $wp_customize->add_setting("team_member_{$i}_email", [
+            'default' => '',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_control("team_member_{$i}_email", [
+            'label' => __("Email du membre $i", 'ESGI'),
+            'section' => 'team_members_section',
+            'type' => 'text',
+        ]);
+
+        $wp_customize->add_setting("team_member_{$i}_photo", [
+            'default' => '',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "team_member_{$i}_photo", [
+            'label' => __("Photo du membre $i", 'ESGI'),
+            'section' => 'team_members_section',
+            'settings' => "team_member_{$i}_photo",
+        ]));
+    }
+
+    // Section pour l'introduction
+    $wp_customize->add_section('intro_section', [
+        'title' => __('Introduction', 'ESGI'),
+        'priority' => 25,
+    ]);
+
+    $wp_customize->add_setting('intro_image', [
+        'default' => '',
+        'transport' => 'refresh',
+    ]);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'intro_image', [
+        'label' => __('Image d\'introduction', 'ESGI'),
+        'section' => 'intro_section',
+        'settings' => 'intro_image',
+    ]));
+
+    $wp_customize->add_setting('intro_title', [
+        'default' => '',
+        'transport' => 'refresh',
+    ]);
+    $wp_customize->add_control('intro_title', [
+        'label' => __('Titre d\'introduction', 'ESGI'),
+        'section' => 'intro_section',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('intro_description', [
+        'default' => '',
+        'transport' => 'refresh',
+    ]);
+    $wp_customize->add_control('intro_description', [
+        'label' => __('Description d\'introduction', 'ESGI'),
+        'section' => 'intro_section',
+        'type' => 'textarea',
+    ]);
+
+    // Section pour les sections "Who are we?", "Our vision", et "Our mission"
+    $wp_customize->add_section('about_us_section', [
+        'title' => __('About Us Content', 'ESGI'),
+        'priority' => 35,
+    ]);
+
+    // Champ pour l'image de la section
+    $wp_customize->add_setting('about_us_image', [
+        'default' => '',
+        'transport' => 'refresh',
+    ]);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'about_us_image', [
+        'label' => __("Image pour les sections", 'ESGI'),
+        'section' => 'about_us_section',
+        'settings' => 'about_us_image',
+    ]));
+
+    // Champs pour les sections
+    $sections = ['who_we_are', 'our_vision', 'our_mission'];
+    foreach ($sections as $section) {
+        $wp_customize->add_setting("about_us_{$section}_title", [
+            'default' => '',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_control("about_us_{$section}_title", [
+            'label' => __("Titre pour la section " . ucfirst(str_replace('_', ' ', $section)), 'ESGI'),
+            'section' => 'about_us_section',
+            'type' => 'text',
+        ]);
+
+        $wp_customize->add_setting("about_us_{$section}_content", [
+            'default' => '',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_control("about_us_{$section}_content", [
+            'label' => __("Contenu pour la section " . ucfirst(str_replace('_', ' ', $section)), 'ESGI'),
+            'section' => 'about_us_section',
+            'type' => 'textarea',
+        ]);
+    }
 }
 
 function esgi_bool_sanitize($value)
@@ -171,7 +289,7 @@ function ajax_load_posts()
     // Ouverture du buffer
     ob_start();
     // inclusion posts-list
-    include ('template-parts/posts-list.php');
+    include('template-parts/posts-list.php');
     // echo le contenu du buffer
     echo ob_get_clean();
     wp_die();
