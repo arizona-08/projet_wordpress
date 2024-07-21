@@ -20,6 +20,7 @@
 
         .footer-text {
             @include heading6;
+			color: white;
             margin-top: rem(20); 
 			margin-left: rem(50);
         }
@@ -40,12 +41,14 @@
 
 			.footer-title {
 				@include heading6;
+				color: white;
 				font-weight: bold;
 				margin-bottom: rem(10);
 			}
 
             .footer-contact {
                 @include heading6;
+				color: white;
                 margin-bottom: rem(5);
             }
         }
