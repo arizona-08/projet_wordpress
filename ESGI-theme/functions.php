@@ -63,6 +63,61 @@ function esgi_getIcon($name)
 
 }
 
+function esgi_customize_services($wp_customize) {
+    // Section pour les services
+    $wp_customize->add_section('services_section', [
+        'title' => __('Services', 'ESGI'),
+        'priority' => 35,
+    ]);
+
+    // Champs pour les services (limité à 3 pour cet exemple)
+    for ($i = 1; $i <= 4; $i++) {
+        $wp_customize->add_setting("service_{$i}_image", [
+            'default' => '',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "service_{$i}_image", [
+            'label' => __("Image pour le service $i", 'ESGI'),
+            'section' => 'services_section',
+            'settings' => "service_{$i}_image",
+        ]));
+
+        $wp_customize->add_setting("service_{$i}_subtitle", [
+            'default' => '',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_control("service_{$i}_subtitle", [
+            'label' => __("Sous-titre pour le service $i", 'ESGI'),
+            'section' => 'services_section',
+            'type' => 'text',
+        ]);
+    }
+
+    // Champs pour le texte et le titre sous les images
+    $wp_customize->add_setting('service_text_title', [
+        'default' => '',
+        'transport' => 'refresh',
+    ]);
+    $wp_customize->add_control('service_text_title', [
+        'label' => __('Titre sous les images', 'ESGI'),
+        'section' => 'services_section',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('service_text_content', [
+        'default' => '',
+        'transport' => 'refresh',
+    ]);
+    $wp_customize->add_control('service_text_content', [
+        'label' => __('Texte sous les images', 'ESGI'),
+        'section' => 'services_section',
+        'type' => 'textarea',
+    ]);
+}
+add_action('customize_register', 'esgi_customize_services');
+
+
+
 // Customizer du thème
 add_action('customize_register', 'esgi_customize_register');
 function esgi_customize_register($wp_customize)
