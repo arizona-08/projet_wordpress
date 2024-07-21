@@ -31,9 +31,16 @@
             }
 
             p {
+<<<<<<< HEAD
             font-family: $font2;
             font-size: rem(18);
             color: #555;
+=======
+                font-family: $font1;
+                font-size: rem(18);
+                color: #555;
+                text-align: left;
+>>>>>>> ef6fc35 (did page 404 and modified header)
             }
         }
     }
@@ -65,7 +72,7 @@
                 }
 
                 p {
-                    font-family: $font2;
+                    font-family: $font1;
                     font-size: rem(18);
                     color: #555;
                 }
@@ -103,7 +110,7 @@
                 }
 
                 p {
-                    font-family: $font2;
+                    font-family: $font1;
                     font-size: rem(16);
                     color: #555;
                     margin-bottom: rem(5);
