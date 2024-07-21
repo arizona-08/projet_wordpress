@@ -5,7 +5,6 @@
 
     h1 {
         @include heading1;
-        color: var(--footer-bg-color);
     }
 
     .intro-section {

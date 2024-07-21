@@ -42,7 +42,6 @@ function esgi_register_nav_menu()
 // Fonction "helper" de génération d'icones svg
 function esgi_getIcon($name)
 {
-
     $twitter = '<svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M18 1.6875C17.325 2.025 16.65 2.1375 15.8625 2.25C16.65 1.8 17.2125 1.125 17.4375 0.225C16.7625 0.675 15.975 0.9 15.075 1.125C14.4 0.45 13.3875 0 12.375 0C10.4625 0 8.775 1.6875 8.775 3.7125C8.775 4.05 8.775 4.275 8.8875 4.5C5.85 4.3875 3.0375 2.925 1.2375 0.675C0.9 1.2375 0.7875 1.8 0.7875 2.5875C0.7875 3.825 1.4625 4.95 2.475 5.625C1.9125 5.625 1.35 5.4 0.7875 5.175C0.7875 6.975 2.025 8.4375 3.7125 8.775C3.375 8.8875 3.0375 8.8875 2.7 8.8875C2.475 8.8875 2.25 8.8875 2.025 8.775C2.475 10.2375 3.825 11.3625 5.5125 11.3625C4.275 12.375 2.7 12.9375 0.9 12.9375C0.5625 12.9375 0.3375 12.9375 0 12.9375C1.6875 13.95 3.6 14.625 5.625 14.625C12.375 14.625 16.0875 9 16.0875 4.1625C16.0875 4.05 16.0875 3.825 16.0875 3.7125C16.875 3.15 17.55 2.475 18 1.6875Z" fill="#1A1A1A"/>
     </svg>';
@@ -60,68 +59,57 @@ function esgi_getIcon($name)
     </svg>';
 
     return $$name;  // nom de variable dynamique
-
 }
-
-function esgi_customize_services($wp_customize) {
-    // Section pour les services
-    $wp_customize->add_section('services_section', [
-        'title' => __('Services', 'ESGI'),
-        'priority' => 35,
-    ]);
-
-    // Champs pour les services (limité à 3 pour cet exemple)
-    for ($i = 1; $i <= 4; $i++) {
-        $wp_customize->add_setting("service_{$i}_image", [
-            'default' => '',
-            'transport' => 'refresh',
-        ]);
-        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "service_{$i}_image", [
-            'label' => __("Image pour le service $i", 'ESGI'),
-            'section' => 'services_section',
-            'settings' => "service_{$i}_image",
-        ]));
-
-        $wp_customize->add_setting("service_{$i}_subtitle", [
-            'default' => '',
-            'transport' => 'refresh',
-        ]);
-        $wp_customize->add_control("service_{$i}_subtitle", [
-            'label' => __("Sous-titre pour le service $i", 'ESGI'),
-            'section' => 'services_section',
-            'type' => 'text',
-        ]);
-    }
-
-    // Champs pour le texte et le titre sous les images
-    $wp_customize->add_setting('service_text_title', [
-        'default' => '',
-        'transport' => 'refresh',
-    ]);
-    $wp_customize->add_control('service_text_title', [
-        'label' => __('Titre sous les images', 'ESGI'),
-        'section' => 'services_section',
-        'type' => 'text',
-    ]);
-
-    $wp_customize->add_setting('service_text_content', [
-        'default' => '',
-        'transport' => 'refresh',
-    ]);
-    $wp_customize->add_control('service_text_content', [
-        'label' => __('Texte sous les images', 'ESGI'),
-        'section' => 'services_section',
-        'type' => 'textarea',
-    ]);
-}
-add_action('customize_register', 'esgi_customize_services');
-
-
 
 // Customizer du thème
 add_action('customize_register', 'esgi_customize_register');
 function esgi_customize_register($wp_customize)
 {
+    // Section "Our Services"
+    $wp_customize->add_section('services_section', array(
+        'title' => __('Our Services', 'theme_textdomain'),
+        'priority' => 35,
+    ));
+
+    for ($i = 1; $i <= 4; $i++) {
+        // Image Setting
+        $wp_customize->add_setting("service_image_$i", array(
+            'default' => get_template_directory_uri() . "/src/img/service$i.jpg",
+            'sanitize_callback' => 'esc_url_raw',
+        ));
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "service_image_$i", array(
+            'label' => __("Service Image $i", 'theme_textdomain'),
+            'section' => 'services_section',
+            'settings' => "service_image_$i",
+        )));
+    }
+
+    $wp_customize->add_setting('service_corp', [
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 'Specializing in the creation of exceptional events for private and corporate clients, we design, plan and manage every project from conception to execution.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+
+    $wp_customize->add_control('service_corp', [
+        'label' => __('Service Corporate', 'ESGI'),
+        'section' => 'services_section',
+        'type' => 'textarea',
+    ]);
+
+    $wp_customize->add_setting('service_corp_image', [
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => get_template_directory_uri() . '/src/img/corp.jpg',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'service_corp_image', [
+        'label' => __('Image du Service Corporate', 'ESGI'),
+        'section' => 'services_section',
+        'settings' => 'service_corp_image',
+    ]));
+
     // Section pour les paramètres ESGI
     $wp_customize->add_section('esgi_section', [
         'title' => __('Paramètres ESGI'),
@@ -306,6 +294,7 @@ function esgi_customize_register($wp_customize)
             'type' => 'textarea',
         ]);
     }
+
 
     // Section pour les partenaires
     $wp_customize->add_section('partners_section', [
