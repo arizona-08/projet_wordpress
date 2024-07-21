@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-<<<<<<< HEAD
+
 $font1: 'Mulish', sans-serif;
 $font2: "Source Serif 4", serif;
-=======
-$font1: "Mulish", sans-serif;
->>>>>>> ef6fc35 (did page 404 and modified header)
+
 
 @mixin heading1 {
     font-family: $font1; 

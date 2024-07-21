@@ -485,3 +485,37 @@ function esgi_theme_footer_widgets()
     }
 }
 add_action('wp_footer', 'esgi_theme_footer_widgets', 5);
+
+function handle_contact_form()
+{
+    // Vérifiez le nonce pour la sécurité
+    if (!isset($_POST['contact_form_nonce_field']) || !wp_verify_nonce($_POST['contact_form_nonce_field'], 'contact_form_nonce')) {
+        wp_die('Security check failed');
+    }
+
+    // Récupérer les données du formulaire
+    $subject = sanitize_text_field($_POST['subject']);
+    $email = sanitize_email($_POST['email']);
+    $phone = sanitize_text_field($_POST['phone']);
+    $message = sanitize_textarea_field($_POST['message']);
+
+    // Définir l'adresse email de destination
+    $to = get_option('admin_email');
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+    $body = "
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Subject:</strong> $subject</p>
+        <p><strong>Email:</strong> $email</p>
+        <p><strong>Phone:</strong> $phone</p>
+        <p><strong>Message:</strong><br>$message</p>
+    ";
+
+    // Envoyer l'email
+    wp_mail($to, $subject, $body, $headers);
+
+    // Rediriger après l'envoi
+    wp_redirect(home_url('/'));
+    exit();
+}
+add_action('admin_post_nopriv_send_contact_form', 'handle_contact_form');
+add_action('admin_post_send_contact_form', 'handle_contact_form');
