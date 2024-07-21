@@ -5024,4 +5024,29 @@ svg:hover path {
   text-decoration: underline;
 }
 
+.partners-content {
+  padding: 9.8125rem;
+}
+.partners-content h1 {
+  font-family: "Overpass", sans-serif;
+  font-size: 1.5625rem;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  color: var(--footer-bg-color);
+}
+
+.partners-svg {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -7.5rem;
+  margin-bottom: 3.125rem;
+  margin-left: 9.8125rem;
+  margin-right: 9.8125rem;
+}
+.partners-svg > *:not(:last-child) {
+  margin-right: 0.625rem;
+}
+
 /*# sourceMappingURL=style.css.map */
