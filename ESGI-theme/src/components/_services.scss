@@ -1,0 +1,8 @@
+.services-content {
+    padding: rem(157);
+    h1 {
+        @include heading1;
+        color: var(--footer-bg-color);
+
+    }
+}
