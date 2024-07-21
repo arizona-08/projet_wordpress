@@ -102,6 +102,22 @@
                     display: inline-block;
                 }
             }
+
+            li.current-menu-item{
+                position: relative;
+                display: inline-block
+
+            }
+
+            li.current-menu-item::after{
+                content: "";
+                    position: absolute;
+                    bottom: rem(-8);
+                    left: 0;
+                    height: rem(4);
+                    width: 100%;
+                    background: linear-gradient(0.25turn, #FFD0A8, #FF4FC0);
+            }
         }
     }
 }

@@ -39,13 +39,13 @@
             </div>
             
             <?php
-            wp_nav_menu(
-                array(
-                    'theme_location' => 'primary_menu',
-                    'container' => false,
-                    'menu_class' => 'mobile-menu-list',
-                )
-            );
+                wp_nav_menu(
+                    array(
+                        'theme_location' => 'primary_menu',
+                        'container' => false,
+                        'menu_class' => 'mobile-menu-list',
+                    )
+                );
             ?>
         </div>
     </nav>
