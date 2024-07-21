@@ -1,49 +1,57 @@
 <?php
-get_header();
+get_header(); ?>
 
-global $wp_query;
-$search_query = get_search_query();
-?>
+<div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+        <header class="page-header">
+            <h1 class="page-title">
+                <?php printf( esc_html__( 'Search results for: %s', 'esgi-theme' ), '<span class="result-span">' . get_search_query() . '</span>' ); ?>
+            </h1>
+        </header><!-- .page-header -->
 
-<main>
-    <footer >
-        <h1>
-            <?php printf( esc_html__( 'Résultats de la recherche pour : %s', 'esgi-theme' ), '<span>' . esc_html( $search_query ) . '</span>' ); ?>
-        </h1>
-    </footer>
-    
-    <div>
         <?php if ( have_posts() ) : ?>
-            <?php
-            $post_types = array();
-            while ( have_posts() ) : the_post();
-                $post_types[get_post_type()][] = get_the_ID();
-            endwhile;
 
-            foreach ( $post_types as $post_type => $post_ids ) :
-                $post_type_object = get_post_type_object( $post_type );
-                $count = count( $post_ids );
-                ?>
-                <section >
-                    <h2><?php printf( esc_html__( '%1$s : %2$d trouvé(s)', 'esgi-theme' ), esc_html( $post_type_object->labels->name ), $count ); ?></h2>
-                    <ul>
-                        <?php
-                        foreach ( $post_ids as $post_id ) :
-                            ?>
-                            <li><a href="<?php echo get_permalink( $post_id ); ?>"><?php echo get_the_title( $post_id ); ?></a></li>
-                            <?php
-                        endforeach;
-                        ?>
-                    </ul>
-                </section>
-            <?php endforeach; ?>
+            <div class="search-results-grid">
+                <?php
+                while ( have_posts() ) :
+                    the_post(); ?>
+                    
+                    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+                            </h2>
+                            <div class="entry-meta">
+                                <span class="cat-links"><?php the_category(', '); ?></span>
+                                <span class="posted-on"><?php the_time('F j, Y'); ?></span>
+                            </div><!-- .entry-meta -->
+                        </header><!-- .entry-header -->
+
+                        <div class="entry-summary">
+                            <?php the_excerpt(); ?>
+                        </div><!-- .entry-summary -->
+                    </article><!-- #post-## -->
+
+                <?php endwhile; ?>
+            </div><!-- .search-results-grid -->
+
+            <?php the_posts_navigation(); ?>
+
         <?php else : ?>
-            <p><?php esc_html_e( 'Aucun résultat trouvé.', 'esgi-theme' ); ?></p>
-        <?php endif; ?>
-    </div>
-</main>
 
-<?php
-get_footer();
-?>
-	
+            <section class="no-results not-found">
+                <header class="page-header">
+                    <h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'esgi-theme' ); ?></h1>
+                </header><!-- .page-header -->
+
+                <div class="page-content">
+                    <p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'esgi-theme' ); ?></p>
+                    <?php get_search_form(); ?>
+                </div><!-- .page-content -->
+            </section><!-- .no-results -->
+
+        <?php endif; ?>
+    </main><!-- .site-main -->
+</div><!-- .content-area -->
+
+<?php get_footer(); ?>
