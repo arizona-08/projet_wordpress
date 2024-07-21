@@ -251,6 +251,25 @@ function esgi_customize_register($wp_customize)
             'type' => 'textarea',
         ]);
     }
+
+    // Section pour les partenaires
+    $wp_customize->add_section('partners_section', [
+        'title' => __('Partenaires', 'ESGI'),
+        'priority' => 40,
+    ]);
+
+    // Champs pour chaque image de partenaire (limité à 6)
+    for ($i = 1; $i <= 6; $i++) {
+        $wp_customize->add_setting("partner_image_$i", [
+            'default' => '',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "partner_image_$i", [
+            'label' => __("Image du partenaire $i", 'ESGI'),
+            'section' => 'partners_section',
+            'settings' => "partner_image_$i",
+        ]));
+    }
 }
 
 function esgi_bool_sanitize($value)
