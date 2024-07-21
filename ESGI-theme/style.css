@@ -4975,4 +4975,146 @@ svg:hover path {
   margin-right: 0.625rem;
 }
 
+.services-content {
+  padding: 9.8125rem;
+}
+.services-content h1 {
+  font-family: "Mulish", sans-serif;
+  font-size: 3.125rem;
+  font-weight: 600;
+  line-height: 105.42px;
+  text-align: left;
+  color: var(--footer-bg-color);
+  color: var(--footer-bg-color);
+}
+
+.contact-content {
+  margin-top: 20rem;
+  padding: 22.3125rem;
+  font-family: "Mulish", sans-serif;
+}
+
+h1 {
+  font-family: "Mulish", sans-serif;
+  font-size: 3.125rem;
+  font-weight: 600;
+  line-height: 105.42px;
+  text-align: left;
+  color: var(--footer-bg-color);
+}
+
+h2 {
+  font-family: "Mulish", sans-serif;
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 79.07px;
+  letter-spacing: 3px;
+  text-align: left;
+  color: var(--footer-bg-color);
+}
+
+.infos-content {
+  display: flex;
+  flex-direction: row-reverse;
+  color: var(--grey);
+}
+
+.relative-container {
+  position: relative;
+  width: 100%;
+  /* Assure que le conteneur occupe toute la largeur disponible */
+}
+
+.absolute-right-image {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+  width: 92.9375rem;
+  height: 39.4375rem;
+}
+
+.line {
+  border: 1px solid #e4e4e4;
+  margin: 1.25rem 0;
+}
+
+.none {
+  border: none;
+  outline: none;
+}
+
+.message-input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Mulish", sans-serif;
+}
+.message-input-container .rectangle {
+  width: 3px;
+  height: 18px;
+  background-color: var(--footer-bg-color);
+  position: absolute;
+  left: 0;
+  top: 11px;
+}
+.message-input-container .message-label {
+  font-family: "Mulish", sans-serif;
+  color: var(--grey);
+  padding-left: 10px;
+  text-align: left;
+}
+.message-input-container .message-textarea {
+  width: 100%;
+  height: 100px;
+  padding-left: 10px;
+  border: none;
+  outline: none;
+  resize: none;
+  color: var(--grey);
+}
+
+.submit-button {
+  background-color: var(--white);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: 20px;
+  font-family: "Mulish", sans-serif;
+  transition: background-color 0.3s;
+}
+.submit-button:hover {
+  background-color: var(--footer-bg-color-hover);
+}
+
+.company-info {
+  display: flex;
+  font-family: Arial, sans-serif;
+  margin: 6.25rem 0;
+}
+
+.location {
+  margin-bottom: 10px;
+  margin-right: 3.125rem;
+}
+
+.manager,
+.ceo {
+  margin-bottom: 20px;
+  margin-right: 3.125rem;
+}
+
+.phone,
+.email {
+  margin-right: 3.125rem;
+}
+
+.phone:before {
+  content: "Phone: ";
+}
+
+.email:before {
+  content: "Email: ";
+}
+
 /*# sourceMappingURL=style.css.map */
