@@ -10,20 +10,16 @@ get_header();
 </div>
 
 <div class="sections">
-    <div class="partners-svg">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/svg/partner-1.svg" >
-        <img src="<?php echo get_template_directory_uri(); ?>/images/svg/partner-2.svg" >
-        <img src="<?php echo get_template_directory_uri(); ?>/images/svg/partner-3.svg" >
-        <img src="<?php echo get_template_directory_uri(); ?>/images/svg/partner-4.svg" >
-        <img src="<?php echo get_template_directory_uri(); ?>/images/svg/partner-5.svg" >
-        <img src="<?php echo get_template_directory_uri(); ?>/images/svg/partner-6.svg" >
+    <div class="partners-images">
+        <?php
+        for ($i = 1; $i <= 6; $i++) {
+            $partner_image = get_theme_mod("partner_image_$i");
+            if ($partner_image) {
+                echo "<img src='{$partner_image}' alt='Partner $i' class='partner-image' />";
+            }
+        }
+        ?>
     </div>
-
-</div>
-
-
-
-</div>
 </div>
 
 <?php get_footer(); ?>

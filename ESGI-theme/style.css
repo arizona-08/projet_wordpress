@@ -4962,7 +4962,7 @@ svg:hover path {
   color: var(--footer-bg-color);
 }
 
-.partners-svg {
+.partners-images {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -4971,7 +4971,7 @@ svg:hover path {
   margin-left: 9.8125rem;
   margin-right: 9.8125rem;
 }
-.partners-svg > *:not(:last-child) {
+.partners-images > *:not(:last-child) {
   margin-right: 0.625rem;
 }
 
