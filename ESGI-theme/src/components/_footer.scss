@@ -1,10 +1,13 @@
 #site-footer {
-    @include flexbox(row, nowrap, space-between, center, rem(16));
-    padding: rem(40) rem(50);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 50px;
     width: 100%;
-    height: rem(300);
     background-color: var(--footer-bg-color);
     color: var(--white);
+    position: absolute;
+    bottom: 0;
 
     .footer-logo {
         display: flex;
@@ -13,15 +16,17 @@
 
         img {
             width: auto;
-            height: rem(50); 
-            margin-bottom: rem(100); 
-			margin-left: rem(50);
+            height: 50px; 
+            margin-bottom: 20px;
         }
 
         .footer-text {
-            @include heading6;
-            margin-top: rem(20); 
-			margin-left: rem(50);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 19.53px;
+            color: var(--white);
+            margin-top: 20px; 
         }
     }
 
@@ -30,35 +35,41 @@
         flex-direction: column;
         align-items: flex-end;
         text-align: right;
-		margin-right: rem(50);
 
         .footer-column {
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: rem(50); 
+            gap: 50px;
 
-			.footer-title {
-				@include heading6;
-				font-weight: bold;
-				margin-bottom: rem(10);
-			}
+            .footer-title {
+                font-family: 'Mulish', sans-serif;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 25.1px;
+                color: var(--white);
+                margin-bottom: 10px;
+            }
 
             .footer-contact {
-                @include heading6;
-                margin-bottom: rem(5);
+                font-family: 'Mulish', sans-serif;
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 20px;
+                color: var(--white);
+                margin-bottom: 5px;
             }
         }
 
         .footer-social {
             display: flex;
             justify-content: flex-end;
-            gap: rem(20);
-            margin-top: rem(50); 
+            gap: 20px;
+            margin-top: 20px;
 
             img {
-                width: rem(20);
-                height: rem(20);
+                width: 20px;
+                height: 20px;
             }
         }
     }
