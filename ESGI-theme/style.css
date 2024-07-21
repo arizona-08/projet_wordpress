@@ -4623,11 +4623,13 @@ svg:hover path {
   margin-left: 3.125rem;
 }
 #site-footer .footer-logo .footer-text {
-  font-family: "Source Serif 4", serif;
+  font-family: "Mulish", sans-serif;
   font-size: 0.8125rem;
   line-height: 1.3125rem;
   letter-spacing: 0.05em;
   font-weight: 300;
+  color: #555;
+  color: white;
   margin-top: 1.25rem;
   margin-left: 3.125rem;
 }
@@ -4645,20 +4647,24 @@ svg:hover path {
   gap: 3.125rem;
 }
 #site-footer .footer-info .footer-column .footer-title {
-  font-family: "Source Serif 4", serif;
+  font-family: "Mulish", sans-serif;
   font-size: 0.8125rem;
   line-height: 1.3125rem;
   letter-spacing: 0.05em;
   font-weight: 300;
+  color: #555;
+  color: white;
   font-weight: bold;
   margin-bottom: 0.625rem;
 }
 #site-footer .footer-info .footer-column .footer-contact {
-  font-family: "Source Serif 4", serif;
+  font-family: "Mulish", sans-serif;
   font-size: 0.8125rem;
   line-height: 1.3125rem;
   letter-spacing: 0.05em;
   font-weight: 300;
+  color: #555;
+  color: white;
   margin-bottom: 0.3125rem;
 }
 #site-footer .footer-info .footer-social {
@@ -4690,11 +4696,12 @@ svg:hover path {
   object-position: center;
 }
 .identityCard h1 {
-  font-family: "Overpass", sans-serif;
-  font-size: 1.5625rem;
-  line-height: 1.2;
-  letter-spacing: 0.1em;
-  font-weight: 400;
+  font-family: "Mulish", sans-serif;
+  font-size: 3.125rem;
+  font-weight: 600;
+  line-height: 105.42px;
+  text-align: left;
+  color: var(--footer-bg-color);
 }
 .identityCard h2 {
   font-family: "Source Serif 4", serif;
@@ -4724,11 +4731,12 @@ svg:hover path {
 }
 
 .post-title {
-  font-family: "Overpass", sans-serif;
-  font-size: 1.5625rem;
-  line-height: 1.2;
-  letter-spacing: 0.1em;
-  font-weight: 400;
+  font-family: "Mulish", sans-serif;
+  font-size: 3.125rem;
+  font-weight: 600;
+  line-height: 105.42px;
+  text-align: left;
+  color: var(--footer-bg-color);
   text-align: center;
   margin: 2em 0 1em;
 }
@@ -4742,11 +4750,12 @@ svg:hover path {
 }
 
 .post-meta {
-  font-family: "Source Serif 4", serif;
+  font-family: "Mulish", sans-serif;
   font-size: 0.8125rem;
   line-height: 1.3125rem;
   letter-spacing: 0.05em;
   font-weight: 300;
+  color: #555;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -4791,11 +4800,12 @@ svg:hover path {
 .postsList li a {
   color: inherit;
   text-decoration: none;
-  font-family: "Overpass", sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
-  letter-spacing: 0.1em;
-  font-weight: 400;
+  font-family: "Mulish", sans-serif;
+  font-size: 1.5625rem;
+  font-weight: 600;
+  line-height: 58.99px;
+  text-align: left;
+  color: var(--footer-bg-color);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -4804,11 +4814,12 @@ svg:hover path {
   gap: 1.25rem;
 }
 .postsList li a time {
-  font-family: "Source Serif 4", serif;
+  font-family: "Mulish", sans-serif;
   font-size: 0.8125rem;
   line-height: 1.3125rem;
   letter-spacing: 0.05em;
   font-weight: 300;
+  color: #555;
   color: var(--grey);
 }
 .postsList li:hover a {
@@ -4819,38 +4830,44 @@ svg:hover path {
   padding: 3.125rem;
 }
 .about-us-content h1 {
-  font-family: "Overpass", sans-serif;
-  font-size: 2.25rem;
-  margin-bottom: 1.25rem;
+  font-family: "Mulish", sans-serif;
+  font-size: 3.125rem;
+  font-weight: 600;
+  line-height: 105.42px;
   text-align: left;
+  color: var(--footer-bg-color);
+  color: var(--footer-bg-color);
 }
 .about-us-content .intro-section {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: flex-end;
   margin-bottom: 3.125rem;
 }
 .about-us-content .intro-section .intro-image {
-  width: 50%;
+  width: 70%;
   height: auto;
   margin-right: 1.25rem;
 }
 .about-us-content .intro-section .intro-text {
-  width: 50%;
+  width: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  margin-right: 28.125rem;
 }
 .about-us-content .intro-section .intro-text h2 {
-  font-family: "Overpass", sans-serif;
-  font-size: 1.75rem;
-  margin-bottom: 0.625rem;
+  font-family: "Mulish", sans-serif;
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 79.07px;
+  letter-spacing: 3px;
   text-align: left;
+  color: var(--footer-bg-color);
 }
 .about-us-content .intro-section .intro-text p {
   font-family: "Source Serif 4", serif;
   font-size: 1.125rem;
   color: #555;
-  text-align: left;
 }
 .about-us-content .sections {
   display: flex;
@@ -4859,21 +4876,27 @@ svg:hover path {
   margin-bottom: 3.125rem;
 }
 .about-us-content .sections .about-us-image {
-  width: 30%;
+  width: 40%;
   height: auto;
   margin-right: 1.25rem;
 }
 .about-us-content .sections .sections-text {
   width: 70%;
+  margin-top: 7.5rem;
+  margin-left: 7.5rem;
+  margin-right: 9.375rem;
 }
 .about-us-content .sections .sections-text .section {
   margin-bottom: 1.875rem;
   text-align: left;
 }
 .about-us-content .sections .sections-text .section h3 {
-  font-family: "Overpass", sans-serif;
-  font-size: 1.5rem;
-  margin-bottom: 0.625rem;
+  font-family: "Mulish", sans-serif;
+  font-size: 1.5625rem;
+  font-weight: 600;
+  line-height: 58.99px;
+  text-align: left;
+  color: var(--footer-bg-color);
 }
 .about-us-content .sections .sections-text .section p {
   font-family: "Source Serif 4", serif;
@@ -4884,10 +4907,13 @@ svg:hover path {
   margin-top: 3.125rem;
 }
 .about-us-content .team-section h2 {
-  font-family: "Overpass", sans-serif;
-  font-size: 1.75rem;
-  margin-bottom: 1.25rem;
+  font-family: "Mulish", sans-serif;
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 79.07px;
+  letter-spacing: 3px;
   text-align: left;
+  color: var(--footer-bg-color);
 }
 .about-us-content .team-section .team-members {
   display: flex;
@@ -4905,7 +4931,7 @@ svg:hover path {
   margin-bottom: 0.625rem;
 }
 .about-us-content .team-section .team-members .team-member h3 {
-  font-family: "Overpass", sans-serif;
+  font-family: "Mulish", sans-serif;
   font-size: 1.25rem;
   margin-bottom: 0.3125rem;
 }
@@ -4927,11 +4953,12 @@ svg:hover path {
   padding: 9.8125rem;
 }
 .partners-content h1 {
-  font-family: "Overpass", sans-serif;
-  font-size: 1.5625rem;
-  line-height: 1.2;
-  letter-spacing: 0.1em;
-  font-weight: 400;
+  font-family: "Mulish", sans-serif;
+  font-size: 3.125rem;
+  font-weight: 600;
+  line-height: 105.42px;
+  text-align: left;
+  color: var(--footer-bg-color);
   color: var(--footer-bg-color);
 }
 
