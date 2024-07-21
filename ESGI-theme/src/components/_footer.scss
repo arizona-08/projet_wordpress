@@ -1,179 +1,65 @@
 #site-footer {
-	display: block;
-	opacity: 1;
-	position: fixed; /* Utilisez 'fixed' pour un footer fixe en bas */
-	color: var(--white);
-	gap: 0px;
-	top: auto; /* Supprimez 'top' car 'bottom' sera utilisé */
-	bottom: 0; /* Positionnez le footer en bas de la page */
-	left: 0;
-	width: 100%;
-	height: 11rem; /* Ajustez la hauteur pour s'adapter au contenu */
-	background-color: var(--footer-bg-color);
-	z-index: 1000;
-	padding: 20px; /* Ajoutez un padding pour un meilleur espacement interne */
-	box-sizing: border-box;
-	margin-left: -1%;
-}
+    @include flexbox(row, nowrap, space-between, center, rem(16));
+    padding: rem(40) rem(50);
+    width: 100%;
+    height: rem(300);
+    background-color: var(--footer-bg-color);
+    color: var(--white);
 
-.footer-svg {
-	width: 20 rem;
-	height: 70px;
-	position: absolute;
-	top: 75px;
-	left: 154px;
-	padding: 48.33px 0px 6.67px 215px;
-	gap: 0px;
-	opacity: 1;
-	/* Assurez-vous que l'opacité soit 1 pour être visible */
-}
+    .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
 
-.footer-text {
-	font-family: 'DM Sans', sans-serif;
-	font-size: 15px;
-	font-weight: 400;
-	line-height: 19.53px;
-	text-align: left;
-	width: 211px;
-	height: 20px;
-	gap: 0px;
-	opacity: 1;
-	/* Assurez-vous que l'opacité soit 1 pour être visible */
-	color: var(--white);
-	/* Couleur du texte */
-	position: relative;
-	/* Pour positionner le texte par rapport au container */
-}
+        img {
+            width: auto;
+            height: rem(50); 
+            margin-bottom: rem(100); 
+			margin-left: rem(50);
+        }
 
-.footer-manager {
-	font-family: 'Mulish', sans-serif;
-	font-size: 20px;
-	font-weight: 700;
-	line-height: 25.1px;
-	text-align: left;
-	width: 86px;
-	height: 25px;
-	position: absolute;
-	top: 7px;
-	left: 97px;
-	gap: 0px;
-	opacity: 1;
-	/* Assurez-vous que l'opacité soit 1 pour être visible */
-	color: var(--white);
-	/* Couleur du texte */
-}
+        .footer-text {
+            @include heading6;
+            margin-top: rem(20); 
+			margin-left: rem(50);
+        }
+    }
 
-.footer-ceo {
-	font-family: 'Mulish', sans-serif;
-	font-size: 20px;
-	font-weight: 700;
-	line-height: 25.1px;
-	text-align: left;
-	width: 42px;
-	height: 25px;
-	position: absolute;
-	top: 7px;
-	left: 14rem;
-	gap: 0px;
-	opacity: 1;
-	/* Assurez-vous que l'opacité soit 1 pour être visible */
-	color: var(--white);
-	/* Couleur du texte */
-}
+    .footer-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
+		margin-right: rem(50);
 
+        .footer-column {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: rem(50); 
 
-.footer-phone {
-	font-family: 'Mulish', sans-serif;
-	font-size: 20px;
-	font-weight: 400;
-	line-height: 38px;
-	text-align: left;
-	width: 170px;
-	height: 38px;
-	position: absolute;
-	top: 59px;
-	left: 13px;
-	gap: 0px;
-	opacity: 1;
-	/* Assurez-vous que l'opacité soit 1 pour être visible */
-	color: var(--white);
-	/* Couleur du texte */
-}
+			.footer-title {
+				@include heading6;
+				font-weight: bold;
+				margin-bottom: rem(10);
+			}
 
+            .footer-contact {
+                @include heading6;
+                margin-bottom: rem(5);
+            }
+        }
 
-.footer-phone2 {
-	font-family: 'Mulish', sans-serif;
-	font-size: 20px;
-	font-weight: 400;
-	line-height: 38px;
-	text-align: left;
-	width: 170px;
-	height: 38px;
-	position: absolute;
-	top: 59px;
-	left: 12rem;
-	gap: 0px;
-	opacity: 1;
-	/* Assurez-vous que l'opacité soit 1 pour être visible */
-	color: var(--white);
-	/* Couleur du texte */
-}
+        .footer-social {
+            display: flex;
+            justify-content: flex-end;
+            gap: rem(20);
+            margin-top: rem(50); 
 
-
-.footer-email {
-	font-family: 'Mulish', sans-serif;
-	font-size: 20px;
-	font-weight: 400;
-	line-height: 38px;
-	text-align: left;
-	width: 179px;
-	height: 38px;
-	position: absolute;
-	top: 99px;
-	left: 5px;
-	gap: 0px;
-	opacity: 1;
-	/* Assurez-vous que l'opacité soit 1 pour être visible */
-	color: var(--white);
-	/* Couleur du texte */
-}
-
-
-
-.footer-email-info {
-	font-family: 'Mulish', sans-serif;
-	font-size: 20px;
-	font-weight: 400;
-	line-height: 38px;
-	text-align: left;
-	width: 135px;
-	height: 38px;
-	position: absolute;
-	top: 99px;
-	left: 12rem;
-	gap: 0px;
-	opacity: 1;
-	/* Assurez-vous que l'opacité soit 1 pour être visible */
-	color: var(--white);
-	/* Couleur du texte */
-}
-
-.footer-facebook {
-	width: 10.31px;
-	height: 20px;
-	position: absolute;
-	top: 297px;
-	left: 1750px;
-	gap: 0px;
-	opacity: 1;
-}
-
-.footer-facebook {
-	width: 10.31px;
-	height: 20px;
-	position: absolute;
-	top: 297px;
-	left: 1750px;
-	gap: 0px;
-	opacity: 1;
+            img {
+                width: rem(20);
+                height: rem(20);
+            }
+        }
+    }
 }
