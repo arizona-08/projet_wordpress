@@ -1,11 +1,15 @@
 #site-header {
     @include flexbox(row, nowrap, space-between, center, rem(16));
-    padding: rem(16) rem(32);
+    padding: rem(16) rem(100);
+
+    &.blue-header {
+        background-color: var(--footer-bg-color);
+        color: white; 
+    }
 
     .logo {
         display: flex;
         align-items: center; 
-        margin-left: rem(20);
         position: relative;
 
         img {
@@ -21,7 +25,6 @@
         align-items: flex-end;
         justify-content: center;
         cursor: pointer;
-        margin-right: rem(20);
     }	
 }
 
@@ -47,29 +50,38 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        padding: rem(50);
+        padding: rem(50) rem(100);
         color: white;
         height: 100%;
-        padding-top: rem(50);
 
-        .logo-white {
-            height: rem(24); 
-            margin-bottom: rem(16);
+        .mobile-menu-top-bar{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            .mobile-menu-top-bar-left{
+                .logo-white {
+                    height: rem(24); 
+                    margin-bottom: rem(16);
+                }
+        
+                p {
+                    margin: 0 0 rem(16);
+                    font-size: rem(14);
+                    color: white;
+                }
+            }
+
+            .close-menu {
+                // position: absolute;
+                // top: rem(44);
+                // right: rem(50);
+                font-size: rem(32);
+                cursor: pointer;
+            }
         }
 
-        p {
-            margin: 0 0 rem(16);
-            font-size: rem(14);
-            color: white;
-        }
-
-        .close-menu {
-            position: absolute;
-            top: rem(44);
-            right: rem(50);
-            font-size: rem(32);
-            cursor: pointer;
-        }
+        
 
         .mobile-menu-list {
             list-style: none;
