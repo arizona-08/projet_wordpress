@@ -61,6 +61,7 @@ function esgi_getIcon($name)
     return $$name;  // nom de variable dynamique
 }
 
+
 // Customizer du thème
 add_action('customize_register', 'esgi_customize_register');
 function esgi_customize_register($wp_customize)
@@ -174,48 +175,46 @@ function esgi_customize_register($wp_customize)
 
     // Champs pour chaque membre de l'équipe (limité à 4)
     for ($i = 1; $i <= 4; $i++) {
-        $wp_customize->add_setting("team_member{$i}role", [
+        $wp_customize->add_setting("team_member_{$i}_role", [
             'default' => '',
             'transport' => 'refresh',
         ]);
-        $wp_customize->add_control("team_member{$i}role", [
+        $wp_customize->add_control("team_member_{$i}_role", [
             'label' => __("Rôle du membre $i", 'ESGI'),
             'section' => 'team_members_section',
             'type' => 'text',
         ]);
 
-        $wp_customize->add_setting("team_member{$i}phone", [
+        $wp_customize->add_setting("team_member_{$i}_phone", [
             'default' => '',
             'transport' => 'refresh',
         ]);
-        $wp_customize->add_control("team_member{$i}phone", [
+        $wp_customize->add_control("team_member_{$i}_phone", [
             'label' => __("Téléphone du membre $i", 'ESGI'),
             'section' => 'team_members_section',
             'type' => 'text',
         ]);
 
-        $wp_customize->add_setting("team_member{$i}email", [
+        $wp_customize->add_setting("team_member_{$i}_email", [
             'default' => '',
             'transport' => 'refresh',
         ]);
-        $wp_customize->add_control("team_member{$i}email", [
+        $wp_customize->add_control("team_member_{$i}_email", [
             'label' => __("Email du membre $i", 'ESGI'),
             'section' => 'team_members_section',
             'type' => 'text',
         ]);
 
-        $wp_customize->add_setting("team_member{$i}photo", [
+        $wp_customize->add_setting("team_member_{$i}_photo", [
             'default' => '',
             'transport' => 'refresh',
         ]);
-        $wp_customize->add_control(new WP_Customize_Image_control($wp_customize, "team_member_{$i}_photo", [
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "team_member_{$i}_photo", [
             'label' => __("Photo du membre $i", 'ESGI'),
             'section' => 'team_members_section',
-            'settings' => "team_member{$i}_photo",
+            'settings' => "team_member_{$i}_photo",
         ]));
     }
-
-
 
     // Section pour l'introduction
     $wp_customize->add_section('intro_section', [
@@ -293,7 +292,6 @@ function esgi_customize_register($wp_customize)
             'type' => 'textarea',
         ]);
     }
-
 
     // Section pour les partenaires
     $wp_customize->add_section('partners_section', [
