@@ -4890,6 +4890,7 @@ svg:hover path {
   line-height: 105.42px;
   text-align: left;
   color: var(--footer-bg-color);
+  margin-left: 3.125rem;
 }
 .about-us-content .intro-section {
   display: flex;
@@ -5112,17 +5113,16 @@ svg:hover path {
   padding: 22.3125rem;
   font-family: "Mulish", sans-serif;
 }
-
-h1 {
+.contact-content h1 {
   font-family: "Mulish", sans-serif;
   font-size: 3.125rem;
   font-weight: 600;
   line-height: 105.42px;
   text-align: left;
   color: var(--footer-bg-color);
+  margin-left: 3.125rem;
 }
-
-h2 {
+.contact-content h2 {
   font-family: "Mulish", sans-serif;
   font-size: 1.875rem;
   font-weight: 600;
@@ -5286,6 +5286,41 @@ h2 {
   font-size: 1.25rem;
   font-weight: 400;
   color: var(--grey);
+}
+
+.home-intro {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-intro h1 {
+  font-family: "Mulish", sans-serif;
+  font-size: 3.125rem;
+  font-weight: 600;
+  line-height: 105.42px;
+  text-align: left;
+  color: var(--footer-bg-color);
+}
+.home-intro .home-h1 {
+  align-self: start;
+  margin-left: 6.25rem;
+  margin-bottom: 6.25rem;
+}
+.home-intro .home-h1 h1:nth-child(2) {
+  margin-top: -4.375rem;
+}
+.home-intro .home-image {
+  width: 70%;
+  height: auto;
+  right: 0;
+  align-self: end;
+}
+
+.home-about-us,
+.home-services,
+.home-partners {
+  margin: 3.125rem;
 }
 
 /*# sourceMappingURL=style.css.map */

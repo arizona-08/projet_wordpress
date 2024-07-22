@@ -5,6 +5,7 @@
 
     h1 {
         @include heading1;
+        margin-left: rem(50);
     }
 
     .intro-section {

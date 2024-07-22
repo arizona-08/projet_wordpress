@@ -208,12 +208,14 @@ function esgi_customize_register($wp_customize)
             'default' => '',
             'transport' => 'refresh',
         ]);
-        $wp_customize->add_control(new WP_Customize_Image_control($wp_customize, "team_member{$i}photo", [
+        $wp_customize->add_control(new WP_Customize_Image_control($wp_customize, "team_member_{$i}_photo", [
             'label' => __("Photo du membre $i", 'ESGI'),
             'section' => 'team_members_section',
             'settings' => "team_member{$i}_photo",
         ]));
     }
+
+
 
     // Section pour l'introduction
     $wp_customize->add_section('intro_section', [
