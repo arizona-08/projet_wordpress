@@ -4600,6 +4600,19 @@ svg:hover path {
   position: relative;
   display: inline-block;
 }
+.mobile-menu .mobile-menu-content .mobile-menu-list li.current-menu-item {
+  position: relative;
+  display: inline-block;
+}
+.mobile-menu .mobile-menu-content .mobile-menu-list li.current-menu-item::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  height: 0.25rem;
+  width: 100%;
+  background: linear-gradient(0.25turn, #FFD0A8, #FF4FC0);
+}
 
 #site-footer {
   display: flex;
@@ -4944,10 +4957,12 @@ svg:hover path {
   font-size: 1.125rem;
   color: #555;
 }
-.about-us-content .team-section {
+
+.team-section {
   margin-top: 3.125rem;
+  padding: 0 9.875rem;
 }
-.about-us-content .team-section h2 {
+.team-section h2 {
   font-family: "Mulish", sans-serif;
   font-size: 1.875rem;
   font-weight: 600;
@@ -4956,37 +4971,37 @@ svg:hover path {
   text-align: left;
   color: var(--footer-bg-color);
 }
-.about-us-content .team-section .team-members {
+.team-section .team-members {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.about-us-content .team-section .team-members .team-member {
+.team-section .team-members .team-member {
   width: 22%;
-  text-align: center;
+  text-align: left;
   margin-bottom: 1.25rem;
 }
-.about-us-content .team-section .team-members .team-member img {
+.team-section .team-members .team-member img {
   width: 100%;
   height: auto;
   margin-bottom: 0.625rem;
 }
-.about-us-content .team-section .team-members .team-member h3 {
+.team-section .team-members .team-member h3 {
   font-family: "Mulish", sans-serif;
   font-size: 1.25rem;
   margin-bottom: 0.3125rem;
 }
-.about-us-content .team-section .team-members .team-member p {
+.team-section .team-members .team-member p {
   font-family: "Mulish", sans-serif;
   font-size: 1rem;
   color: #555;
   margin-bottom: 0.3125rem;
 }
-.about-us-content .team-section .team-members .team-member p a {
+.team-section .team-members .team-member p a {
   color: #555;
   text-decoration: none;
 }
-.about-us-content .team-section .team-members .team-member p a:hover {
+.team-section .team-members .team-member p a:hover {
   text-decoration: underline;
 }
 
@@ -5090,6 +5105,187 @@ svg:hover path {
   color: var(--var);
   width: 100%;
   padding-bottom: 0.5rem;
+}
+
+.contact-content {
+  margin-top: 20rem;
+  padding: 22.3125rem;
+  font-family: "Mulish", sans-serif;
+}
+
+h1 {
+  font-family: "Mulish", sans-serif;
+  font-size: 3.125rem;
+  font-weight: 600;
+  line-height: 105.42px;
+  text-align: left;
+  color: var(--footer-bg-color);
+}
+
+h2 {
+  font-family: "Mulish", sans-serif;
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 79.07px;
+  letter-spacing: 3px;
+  text-align: left;
+  color: var(--footer-bg-color);
+}
+
+.infos-content {
+  display: flex;
+  flex-direction: row-reverse;
+  color: var(--grey);
+}
+
+.relative-container {
+  position: relative;
+  width: 100%;
+  /* Assure que le conteneur occupe toute la largeur disponible */
+}
+
+.absolute-right-image {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+  width: 92.9375rem;
+  height: 39.4375rem;
+}
+
+.line {
+  border: 1px solid #e4e4e4;
+  margin: 1.25rem 0;
+}
+
+.none {
+  border: none;
+  outline: none;
+}
+
+.message-input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Mulish", sans-serif;
+}
+.message-input-container .rectangle {
+  width: 3px;
+  height: 18px;
+  background-color: var(--footer-bg-color);
+  position: absolute;
+  left: 0;
+  top: 11px;
+}
+.message-input-container .message-label {
+  font-family: "Mulish", sans-serif;
+  color: var(--grey);
+  padding-left: 10px;
+  text-align: left;
+}
+.message-input-container .message-textarea {
+  width: 100%;
+  height: 100px;
+  padding-left: 10px;
+  padding-top: 2rem;
+  border: none;
+  outline: none;
+  resize: none;
+  color: var(--grey);
+}
+
+.submit-button {
+  background-color: var(--white);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: 20px;
+  font-family: "Mulish", sans-serif;
+  transition: background-color 0.3s;
+}
+.submit-button:hover {
+  background-color: var(--footer-bg-color-hover);
+}
+
+.company-info {
+  display: flex;
+  font-family: Arial, sans-serif;
+  margin: 6.25rem 0;
+}
+
+.location {
+  margin-bottom: 10px;
+  margin-right: 3.125rem;
+}
+
+.manager,
+.ceo {
+  margin-bottom: 20px;
+  margin-right: 3.125rem;
+}
+
+.phone,
+.email {
+  margin-right: 3.125rem;
+}
+
+.phone:before {
+  content: "Phone: ";
+}
+
+.email:before {
+  content: "Email: ";
+}
+
+#primary .site-main {
+  padding: 0.9375rem 6.25rem;
+}
+#primary .site-main .page-header .page-title {
+  font-size: 5.25rem;
+  color: var(--footer-bg-color);
+}
+#primary .site-main .page-header .page-title .result-span {
+  position: relative;
+  display: inline-block;
+}
+#primary .site-main .page-header .page-title .result-span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0.25rem;
+  width: 100%;
+  background: linear-gradient(0.25turn, #FFD0A8, #FF4FC0);
+}
+#primary .site-main .search-results-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+#primary .site-main .search-results-grid article {
+  width: 31.375rem;
+  padding: 1.25rem;
+  background: #fff;
+}
+#primary .site-main .search-results-grid article a {
+  text-decoration: none;
+  color: var(--footer-bg-color);
+}
+#primary .site-main .search-results-grid article .entry-header .entry-title {
+  font-size: 2.1875rem;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+#primary .site-main .search-results-grid article .entry-header .entry-meta {
+  font-size: 1.25rem;
+  color: var(--footer-bg-color);
+  font-weight: 800;
+}
+#primary .site-main .search-results-grid article .entry-summary {
+  margin-top: 1.4375rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--grey);
 }
 
 /*# sourceMappingURL=style.css.map */
